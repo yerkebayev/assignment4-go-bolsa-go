@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package user;
+option go_package = "github.com/yerkebayev/assignment4-go-bolsa-go/userpb";
+
+service UserService {
+  rpc AddUser(User) returns (User);
+  rpc GetUser(UserId) returns (User);
+  rpc ListUsers(Empty) returns (Users);
+}
+
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message UserId {
+  int32 id = 1;
+}
+
+message Empty {}
+
+message Users {
+  repeated User users = 1;
+}
